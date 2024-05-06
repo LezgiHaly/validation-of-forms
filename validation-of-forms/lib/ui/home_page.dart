@@ -10,6 +10,9 @@ import 'package:surf_flutter_courses_template/ui/widgets/list_pets_widget.dart';
 import 'package:surf_flutter_courses_template/ui/widgets/sent_button_widget.dart';
 import 'package:surf_flutter_courses_template/ui/widgets/vaccinations_widget.dart';
 
+
+/// Основной Экран приложения
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -38,6 +41,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 60,
               ),
+              /// Добавляем карточки питомцев
               ListPetsWidget(
                 onTap: (Pet pet) {
                   pets.value = pet;
@@ -51,6 +55,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 32,
               ),
+              /// Поля для ввода данных питомцев
               Form(
                 key: _formKey,
                 child: Column(
@@ -100,6 +105,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 24,
               ),
+              /// отображение полей ввода вациназии в зависимости от питомца
               if (value != Pet.hamster && value != Pet.parrot)
                 VaccinationsWidget(
                   controllerTextField: _controllerDate,
@@ -107,6 +113,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 32,
               ),
+              /// Кнопка отправки данных
               Padding(
                 padding: const EdgeInsets.only(left: 16),
                 child: SentButtonWidget(
@@ -114,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       _isLoading = true;
                     });
-                    if (_formKey.currentState!.validate()) {
+                    if (_formKey.currentState!.validate()) { /// если поля ввода заполнены данные отправятся
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Успех'),

@@ -3,6 +3,9 @@ import 'package:surf_flutter_courses_template/assets/styles.dart';
 import 'package:surf_flutter_courses_template/domain/models/validators.dart';
 import 'package:surf_flutter_courses_template/ui/model/input_field.dart';
 
+/// модель полей вакцинирования
+
+
 class VaccinationsModel extends StatefulWidget {
   /// не могу понять как исправить эту ошибку
   bool isChecked = false;

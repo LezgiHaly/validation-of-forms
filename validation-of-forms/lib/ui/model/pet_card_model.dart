@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:surf_flutter_courses_template/assets/styles.dart';
 
+/// Модель карточки питомца
+
 class PetCardModel extends StatelessWidget {
   final String title;
   final String icon;

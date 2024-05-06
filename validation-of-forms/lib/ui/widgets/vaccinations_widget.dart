@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:surf_flutter_courses_template/assets/styles.dart';
 import 'package:surf_flutter_courses_template/ui/model/vaccinations_model.dart';
-
+/// виджет вакцинации
 class VaccinationsWidget extends StatelessWidget {
   final TextEditingController? controllerTextField;
 

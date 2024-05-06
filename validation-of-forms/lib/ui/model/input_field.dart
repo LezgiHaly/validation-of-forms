@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:surf_flutter_courses_template/assets/styles.dart';
 
+/// Модель поля ввода
+
+
 class InputField extends StatelessWidget {
   final FormFieldValidator? validator;
   final String title;

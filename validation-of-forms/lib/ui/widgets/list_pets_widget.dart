@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:surf_flutter_courses_template/assets/res.dart';
 import 'package:surf_flutter_courses_template/ui/model/pet_card_model.dart';
 
+/// Список питовцев
+
 class ListPetsWidget extends StatelessWidget {
   final void Function(Pet pet) onTap;
   ValueNotifier<Pet> pets = ValueNotifier<Pet>(Pet.dog);
