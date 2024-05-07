@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:surf_flutter_courses_template/assets/styles.dart';
+import 'package:surf_flutter_courses_template/assets/strings.dart';
 import 'package:surf_flutter_courses_template/domain/models/validators.dart';
 import 'package:surf_flutter_courses_template/ui/model/input_field.dart';
 import 'package:surf_flutter_courses_template/ui/widgets/date_picker.dart';
@@ -9,7 +9,7 @@ import 'package:intl/intl.dart';
 import 'package:surf_flutter_courses_template/ui/widgets/list_pets_widget.dart';
 import 'package:surf_flutter_courses_template/ui/widgets/sent_button_widget.dart';
 import 'package:surf_flutter_courses_template/ui/widgets/vaccinations_widget.dart';
-
+import 'package:flutter/services.dart';
 
 /// Основной Экран приложения
 
@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 60,
               ),
+
               /// Добавляем карточки питомцев
               ListPetsWidget(
                 onTap: (Pet pet) {
@@ -55,6 +56,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 32,
               ),
+
               /// Поля для ввода данных питомцев
               Form(
                 key: _formKey,
@@ -90,6 +92,8 @@ class _HomePageState extends State<HomePage> {
                       title: AppStrings.petWeight,
                       validator: weightValidate,
                       controller: _controllerWeight,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                     ),
                     const SizedBox(
                       height: 16,
@@ -105,6 +109,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 24,
               ),
+
               /// отображение полей ввода вациназии в зависимости от питомца
               if (value != Pet.hamster && value != Pet.parrot)
                 VaccinationsWidget(
@@ -113,6 +118,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(
                 height: 32,
               ),
+
               /// Кнопка отправки данных
               Padding(
                 padding: const EdgeInsets.only(left: 16),
@@ -121,7 +127,8 @@ class _HomePageState extends State<HomePage> {
                     setState(() {
                       _isLoading = true;
                     });
-                    if (_formKey.currentState!.validate()) { /// если поля ввода заполнены данные отправятся
+                    if (_formKey.currentState!.validate()) {
+                      /// если поля ввода заполнены данные отправятся
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
                           content: Text('Успех'),

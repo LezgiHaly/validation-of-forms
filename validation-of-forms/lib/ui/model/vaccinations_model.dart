@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:surf_flutter_courses_template/assets/colors.dart';
+import 'package:surf_flutter_courses_template/assets/strings.dart';
 import 'package:surf_flutter_courses_template/assets/styles.dart';
 import 'package:surf_flutter_courses_template/domain/models/validators.dart';
 import 'package:surf_flutter_courses_template/ui/model/input_field.dart';
 
 /// модель полей вакцинирования
 
-
 class VaccinationsModel extends StatefulWidget {
-  /// не могу понять как исправить эту ошибку
-  bool isChecked = false;
+  final bool isChecked;
   final TextEditingController? controller;
 
   final String titile;
-  VaccinationsModel({
+  const VaccinationsModel({
     super.key,
     required this.isChecked,
     required this.titile,
@@ -25,6 +25,14 @@ class VaccinationsModel extends StatefulWidget {
 
 class _VaccinationsModelState extends State<VaccinationsModel> {
   @override
+  void initState() {
+    isChecked = widget.isChecked;
+    super.initState();
+  }
+
+  bool isChecked = false;
+
+  @override
   Widget build(BuildContext context) {
     return Column(
       children: [
@@ -32,10 +40,10 @@ class _VaccinationsModelState extends State<VaccinationsModel> {
           children: [
             Checkbox(
               activeColor: AppColors.colorPink,
-              value: widget.isChecked,
+              value: isChecked,
               onChanged: (bool? value) {
                 setState(() {
-                  widget.isChecked = value!;
+                  isChecked = value!;
                 });
               },
             ),
@@ -47,7 +55,7 @@ class _VaccinationsModelState extends State<VaccinationsModel> {
           ],
         ),
         Visibility(
-          visible: widget.isChecked == true,
+          visible: isChecked == true,
           child: InputField(
             controller: widget.controller,
             title: AppStrings.dateVaccinations,

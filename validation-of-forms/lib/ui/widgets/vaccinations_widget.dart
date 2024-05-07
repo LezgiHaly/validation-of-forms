@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:surf_flutter_courses_template/assets/colors.dart';
+import 'package:surf_flutter_courses_template/assets/strings.dart';
 import 'package:surf_flutter_courses_template/assets/styles.dart';
 import 'package:surf_flutter_courses_template/ui/model/vaccinations_model.dart';
 /// виджет вакцинации
